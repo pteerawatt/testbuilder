@@ -190,7 +190,7 @@ describe('Discover', function() {
       it(`has a prefix of ${prefix} and length of 19`, function() {
         detectNetwork(toString(prefix) + 1123412512341231).to.equal('Discover')
       });
-    })(prefix)
+    })()
    }
 
 describe('Maestro', function() {
