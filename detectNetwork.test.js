@@ -163,25 +163,31 @@ describe('Discover', function() {
   // it('has a prefix of 644 and a length of 19', function() {
   //   expect(detectNetwork('6441425129302847134')).to.equal('Discover');
   // });
-  var rangeForDiscover = ['644', '645', '646', '647', '648', '649']
-  for (var i in rangeForDiscover){
-    it(`has a prefix of ${rangeForDiscover[i]} and a length of 16`, function() {
-      expect(detectNetwork(rangeForDiscover[i] + '1425129302847')).to.equal('Discover');
-    });
+//   var rangeForDiscover = ['644', '645', '646', '647', '648', '649']
+//   for (var i in rangeForDiscover){
+//     it(`has a prefix of ${rangeForDiscover[i]} and a length of 16`, function() {
+//       expect(detectNetwork(rangeForDiscover[i] + '1425129302847')).to.equal('Discover');
+//     });
 
-    it(`has a prefix of ${rangeForDiscover[i]} and a length of 19`, function() {
-      expect(detectNetwork(rangeForDiscover[i] + '1425129302847234')).to.equal('Discover');
-    });
-  }
+//     it(`has a prefix of ${rangeForDiscover[i]} and a length of 19`, function() {
+//       expect(detectNetwork(rangeForDiscover[i] + '1425129302847234')).to.equal('Discover');
+//     });
+//   }
 
-  it('has a prefix of 65 and a length of 16', function() {
-    expect(detectNetwork('6511425129302847')).to.equal('Discover');
-  });
+//   it('has a prefix of 65 and a length of 16', function() {
+//     expect(detectNetwork('6511425129302847')).to.equal('Discover');
+//   });
 
-  it('has a prefix of 65 and a length of 19', function() {
-    expect(detectNetwork('6511425129302847134')).to.equal('Discover');
-  });
-});
+//   it('has a prefix of 65 and a length of 19', function() {
+//     expect(detectNetwork('6511425129302847134')).to.equal('Discover');
+//   });
+// });
+   for (var prefix = 644; prefix <= 649; prefix++) {
+    (function(prefix) {
+      it(`has a prefix of ${prefix} and length of 16`);
+      it(`has a prefix of ${prefix} and length of 16`);
+    })(prefix)
+   }
 
 describe('Maestro', function() {
   // Write full test coverage for the Maestro card
