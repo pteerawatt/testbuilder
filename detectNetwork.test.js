@@ -184,8 +184,12 @@ describe('Discover', function() {
 // });
    for (var prefix = 644; prefix <= 649; prefix++) {
     (function(prefix) {
-      it(`has a prefix of ${prefix} and length of 16`);
-      it(`has a prefix of ${prefix} and length of 16`);
+      it(`has a prefix of ${prefix} and length of 16`, function() {
+        detectNetwork(toString(prefix) + 1123412512341).to.equal('Discover')
+      });
+      it(`has a prefix of ${prefix} and length of 19`, function() {
+        detectNetwork(toString(prefix) + 1123412512341231).to.equal('Discover')
+      });
     })(prefix)
    }
 
