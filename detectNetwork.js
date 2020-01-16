@@ -17,6 +17,8 @@ var detectNetwork = function(cardNumber) {
   	return 'Diner\'s Club';
   } else if (isAmerican(cardNumber) === true) {
   	return 'American Express';
+  } else if (isSwitch(stringNum) === true) {
+  	return 'Switch';
   } else if (isVisa(cardNumber) === true) {
   	return 'Visa';
   } else if (isMaster(cardNumber) === true) {
@@ -136,5 +138,13 @@ function isChina(stringNum) {
 
 function isSwitch(stringNum) {
 // prefix 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759
-// length 16, 18 or 19	
+// length 16, 18 or 19
+	var numFour = ['4903', '4905', '4911', '4936', '6333', '6759'];
+	var numSix = ['564182', '633110'];
+
+	if (numFour.indexOf(stringNum.slice(0, 4)) > -1 && (stringNum.length === 16 || stringNum.length === 18 || stringNum.length === 19)) {
+		return true;
+	} else if (numSix.indexOf(stringNum.slice(0, 6)) > -1 && (stringNum.length === 16 || stringNum.length === 18 || stringNum.length === 19)) {
+		return true;
+	}
 }
