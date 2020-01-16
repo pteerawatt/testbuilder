@@ -35,6 +35,39 @@ describe('American Express', function() {
   });
 });
 
+describe('Switch', function() {
+  // prefix 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759
+  // length of 16, 18, or 19.
+  var prefix4 = ['4903', '4905', '4911', '4936', '6333', '6759'];
+  var prefix6 = ['564182', '633110'];
+  var lengthArr = [16, 18, 19];
+  for (var i = 0; i < prefix4.length; i++) {
+    (function(prefix) {
+      for (var j = 0; j < lengthArr.length; j++) {
+        (function(length) {
+            var int = '0'
+            it(`has a prefix of ${prefix} and length of 16`, function() {
+            expect(detectNetwork(prefix + int.repeat(length - 4))).to.equal('Switch');
+            });
+        })(lengthArr[j]);
+      }
+    })(prefix4[i]);
+  }
+
+  for (var i = 0; i < prefix6.length; i++) {
+    (function(prefix) {
+      for (var j = 0; j < lengthArr.length; j++) {
+        (function(length) {
+            var int = '0'
+            it(`has a prefix of ${prefix} and length of 16`, function() {
+            expect(detectNetwork(prefix + int.repeat(length - 6))).to.equal('Switch');
+            });
+        })(lengthArr[j]);
+      }
+    })(prefix6[i]);
+  }
+});
+
 describe('Visa', function() {
   // Chai is an entire library of helper functions for tests!
   // Chai provides an assert that acts the same as our previous assert.
