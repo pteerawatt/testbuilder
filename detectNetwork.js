@@ -25,6 +25,8 @@ var detectNetwork = function(cardNumber) {
   	return 'Discover';
   } else if (isMaestro(cardNumber) === true) {
   	return 'Maestro';
+  } else if (isChina(cardNumber) === true) {
+  	return 'China UnionPay';
   }
 };
 
@@ -101,4 +103,38 @@ function isMaestro(stringNum) {
 			return true;
 		}
 	} 
+}
+
+function isChina(stringNum) {
+// prefix 622126-622925, 624-626, or 6282-6288
+// length 16-19	
+	for (prefix = 622126; prefix <= 622925; prefix++) {
+		for (length = 16; length <= 19; length++) {
+			if (stringNum.slice(0, 6) === preffix.toString() && (length >=16 && length <= 19)) {
+				return true;
+			}
+	}
+	}
+
+	for (prefix = 624; prefix <= 626; prefix++) {
+		for (length = 16; length <= 19; length++) {
+			if (stringNum.slice(0, 3) === preffix.toString() && (length >=16 && length <= 19)) {
+				return true;
+			}
+	}
+	}
+
+	for (prefix = 6282; prefix <= 6288; prefix++) {
+		for (length = 16; length <= 19; length++) {
+			if (stringNum.slice(0, 4) === preffix.toString() && (length >=16 && length <= 19)) {
+				return true;
+			}
+	}
+	}
+}
+
+
+function isSwitch(stringNum) {
+// prefix 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759
+// length 16, 18 or 19	
 }
