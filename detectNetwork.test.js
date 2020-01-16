@@ -159,9 +159,9 @@ describe('China UnionPay', function() {
     (function(prefix) {
       for (var length = 16; length <= 19; length++) {
         (function(length) {
-          var int = '0'
+          var int = '0';
           it(`has a prefix of ${prefix} and length of ${length}`, function() {
-            expect(detectNetwork(prefix.toString() + int.repeat(length - 6)).to.equal('China UnionPay'));
+            expect(detectNetwork(prefix.toString() + int.repeat(length - 6))).to.equal('China UnionPay');
           })
         })(length);
       }
@@ -172,9 +172,9 @@ describe('China UnionPay', function() {
     (function(prefix) {
       for (var length = 16; length <= 19; length++) {
         (function(length) {
-          var int = '0'
+          var int = '0';
           it(`has a prefix of ${prefix} and length of ${length}`, function() {
-            expect(detectNetwork(prefix.toString() + int.repeat(length - 3)).to.equal('China UnionPay'));
+            expect(detectNetwork(prefix.toString() + int.repeat(length - 3))).to.equal('China UnionPay');
           })
         })(length);
       }
@@ -185,9 +185,9 @@ describe('China UnionPay', function() {
     (function(prefix) {
       for (var length = 16; length <= 19; length++) {
         (function(length) {
-          var int = '0'
+          var int = '0';
           it(`has a prefix of ${prefix} and length of ${length}`, function() {
-            expect(detectNetwork(prefix.toString() + int.repeat(length - 4)).to.equal('China UnionPay'));
+            expect(detectNetwork(prefix.toString() + int.repeat(length - 4))).to.equal('China UnionPay');
           })
         })(length);
       }
