@@ -155,5 +155,43 @@ describe('Maestro', function() {
 describe('China UnionPay', function() {
   // prefix 622126-622925, 624-626, or 6282-6288
   // length 16-19 
+  for (var prefix = 622126; prefix <= 622925; prefix++) {
+    (function(prefix) {
+      for (var length = 16; length <= 19; length++) {
+        (function(length) {
+          var int = '0'
+          it(`has a prefix of ${prefix} and length of ${length}`, function() {
+            expect(detectNetwork(prefix.toString() + int.repeat(length - 6)).to.equal('China UnionPay'));
+          })
+        })(length);
+      }
+    })(prefix);
+  }
+
+  for (var prefix = 624; prefix <= 626; prefix++) {
+    (function(prefix) {
+      for (var length = 16; length <= 19; length++) {
+        (function(length) {
+          var int = '0'
+          it(`has a prefix of ${prefix} and length of ${length}`, function() {
+            expect(detectNetwork(prefix.toString() + int.repeat(length - 3)).to.equal('China UnionPay'));
+          })
+        })(length);
+      }
+    })(prefix);
+  }
+
+  for (var prefix = 6282; prefix <= 6288; prefix++) {
+    (function(prefix) {
+      for (var length = 16; length <= 19; length++) {
+        (function(length) {
+          var int = '0'
+          it(`has a prefix of ${prefix} and length of ${length}`, function() {
+            expect(detectNetwork(prefix.toString() + int.repeat(length - 4)).to.equal('China UnionPay'));
+          })
+        })(length);
+      }
+    })(prefix);
+  }
 
 });

@@ -17,7 +17,7 @@ var detectNetwork = function(cardNumber) {
   	return 'Diner\'s Club';
   } else if (isAmerican(cardNumber) === true) {
   	return 'American Express';
-  } else if (isSwitch(stringNum) === true) {
+  } else if (isSwitch(cardNumber) === true) {
   	return 'Switch';
   } else if (isVisa(cardNumber) === true) {
   	return 'Visa';
@@ -110,28 +110,22 @@ function isMaestro(stringNum) {
 function isChina(stringNum) {
 // prefix 622126-622925, 624-626, or 6282-6288
 // length 16-19	
-	for (prefix = 622126; prefix <= 622925; prefix++) {
-		for (length = 16; length <= 19; length++) {
-			if (stringNum.slice(0, 6) === preffix.toString() && (length >=16 && length <= 19)) {
+	for (var prefix = 622126; prefix <= 622925; prefix++) {
+			if (stringNum.slice(0, 6) === prefix.toString() && (stringNum.length >=16 && stringNum.length <= 19)) {
 				return true;
 			}
-	}
 	}
 
-	for (prefix = 624; prefix <= 626; prefix++) {
-		for (length = 16; length <= 19; length++) {
-			if (stringNum.slice(0, 3) === preffix.toString() && (length >=16 && length <= 19)) {
+	for (var prefix = 624; prefix <= 626; prefix++) {
+			if (stringNum.slice(0, 3) === prefix.toString() && (stringNum.length >=16 && stringNum.length <= 19)) {
 				return true;
 			}
-	}
 	}
 
-	for (prefix = 6282; prefix <= 6288; prefix++) {
-		for (length = 16; length <= 19; length++) {
-			if (stringNum.slice(0, 4) === preffix.toString() && (length >=16 && length <= 19)) {
+	for (var prefix = 6282; prefix <= 6288; prefix++) {
+			if (stringNum.slice(0, 4) === prefix.toString() && (stringNum.length >=16 && stringNum.length <= 19)) {
 				return true;
 			}
-	}
 	}
 }
 
