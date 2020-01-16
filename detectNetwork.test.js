@@ -152,6 +152,17 @@ describe('Discover', function() {
   // length 16 or 19
   var expect = chai.expect;
 
+   for (var prefix = 644; prefix <= 649; prefix++) {
+    (function(input) {
+      it(`has a prefix of ${input} and length of 16`, function() {
+        detectNetwork(toString(input) + 1123412512341).to.equal('Discover')
+      });
+      it(`has a prefix of ${input} and length of 19`, function() {
+        detectNetwork(toString(input) + 1123412512341231).to.equal('Discover')
+      });
+    })(prefix);
+   }
+
   it('has a prefix of 6011 and a length of 16', function() {
     expect(detectNetwork('6011425129302847')).to.equal('Discover');
   });
@@ -160,38 +171,28 @@ describe('Discover', function() {
     expect(detectNetwork('6011425129302847134')).to.equal('Discover');
   });
   
-  // it('has a prefix of 644 and a length of 19', function() {
-  //   expect(detectNetwork('6441425129302847134')).to.equal('Discover');
+  it('has a prefix of 644 and a length of 19', function() {
+    expect(detectNetwork('6441425129302847134')).to.equal('Discover');
+  });
+  // var rangeForDiscover = ['644', '645', '646', '647', '648', '649']
+  // for (var i in rangeForDiscover){
+  //   it(`has a prefix of ${rangeForDiscover[i]} and a length of 16`, function() {
+  //     expect(detectNetwork(rangeForDiscover[i] + '1425129302847')).to.equal('Discover');
+  //   });
+
+  //   it(`has a prefix of ${rangeForDiscover[i]} and a length of 19`, function() {
+  //     expect(detectNetwork(rangeForDiscover[i] + '1425129302847234')).to.equal('Discover');
+  //   });
+  // }
+
+  // it('has a prefix of 65 and a length of 16', function() {
+  //   expect(detectNetwork('6511425129302847')).to.equal('Discover');
   // });
-//   var rangeForDiscover = ['644', '645', '646', '647', '648', '649']
-//   for (var i in rangeForDiscover){
-//     it(`has a prefix of ${rangeForDiscover[i]} and a length of 16`, function() {
-//       expect(detectNetwork(rangeForDiscover[i] + '1425129302847')).to.equal('Discover');
-//     });
 
-//     it(`has a prefix of ${rangeForDiscover[i]} and a length of 19`, function() {
-//       expect(detectNetwork(rangeForDiscover[i] + '1425129302847234')).to.equal('Discover');
-//     });
-//   }
-
-//   it('has a prefix of 65 and a length of 16', function() {
-//     expect(detectNetwork('6511425129302847')).to.equal('Discover');
-//   });
-
-//   it('has a prefix of 65 and a length of 19', function() {
-//     expect(detectNetwork('6511425129302847134')).to.equal('Discover');
-//   });
-// });
-   for (var prefix = 644; prefix <= 649; prefix++) {
-    (function(prefix) {
-      it(`has a prefix of ${prefix} and length of 16`, function() {
-        detectNetwork(toString(prefix) + 1123412512341).to.equal('Discover')
-      });
-      it(`has a prefix of ${prefix} and length of 19`, function() {
-        detectNetwork(toString(prefix) + 1123412512341231).to.equal('Discover')
-      });
-    })()
-   }
+  // it('has a prefix of 65 and a length of 19', function() {
+  //   expect(detectNetwork('6511425129302847134')).to.equal('Discover');
+  // });
+});
 
 describe('Maestro', function() {
   // Write full test coverage for the Maestro card
